@@ -25,5 +25,5 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push ezraone/udagram-api-feed:v1
   - docker push ezraone/udagram-api-user:v1
-  - docker push ezraone/udagram-frontend:v1
+  - docker push ezraone/udagram-frontend:local
   - docker push ezraone/reverseproxy:v1
