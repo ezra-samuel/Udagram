@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+data:
+  AWS_BUCKET: ezraone3
+  AWS_PROFILE: default
+  AWS_REGION: us-east-1
+  POSTGRES_DB: postgres
+  POSTGRES_HOST: database3.cm21fvnh3u7v.us-east-1.rds.amazonaws.com
+  URL: http://localhost:8100
+  JWT_SECRET: secret
+
+metadata:
+  name: env-config
+  namespace: default
+  
