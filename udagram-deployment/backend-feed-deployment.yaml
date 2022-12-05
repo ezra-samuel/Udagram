@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-feed
+  labels:
+    app: backend-feed
+spec:
+  selector:
+    matchLabels:
+      app: backend-feed
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backend-feed
+    spec:
+      containers:
+      - name: backend-feed
+        image: ezraone/udagram-api-feed:v1
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        env:
+          - name: POSTGRES_DB
+            value: postgres
+          - name: POSTGRES_USERNAME
+            value: ezraone
+          - name: POSTGRES_PASSWORD
+            value: ezraone3
+          - name: POSTGRES_HOST
+            value: database3.cm21fvnh3u7v.us-east-1.rds.amazonaws.com
+          - name: AWS_BUCKET
+            value: ezraone3
+          - name: AWS_REGION
+            value: us-east-1
+          - name: AWS_PROFILE
+            value: default
+          - name: JWT_SECRET
+            value: secret
+          - name: URL
+            value: http://localhost:8100
+        ports:
+          - containerPort: 8080
